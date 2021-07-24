@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM python:3.9.6-slim-buster
 
 RUN apt-get update && apt-get install -y gnupg2 vim wget curl
 
@@ -23,7 +23,7 @@ RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/13/main/pg_hba.con
 
 RUN echo "listen_addresses='*'" >> /etc/postgresql/13/main/postgresql.conf
 
-RUN pip3 install psycopg2
+RUN pip install psycopg2
 
 EXPOSE 5432
 
